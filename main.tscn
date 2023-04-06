@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bf6kmrb3p6sr1"]
+
+[ext_resource type="PackedScene" uid="uid://u1k1sdt5l0gt" path="res://scenes/character/character.tscn" id="1_1n0o7"]
+[ext_resource type="PackedScene" uid="uid://bsxgfejsq04qo" path="res://scenes/land/floor.tscn" id="2_rv0sn"]
+[ext_resource type="PackedScene" uid="uid://d03ytibd2nv0" path="res://scenes/land/wall.tscn" id="3_yowag"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Character" parent="." instance=ExtResource("1_1n0o7")]
+position = Vector2(544, 416)
+
+[node name="Floor" parent="." instance=ExtResource("2_rv0sn")]
+position = Vector2(0, 576)
+
+[node name="Ceiling" parent="." instance=ExtResource("2_rv0sn")]
+
+[node name="Wall" parent="." instance=ExtResource("3_yowag")]
+
+[node name="Floor4" parent="." instance=ExtResource("3_yowag")]
+position = Vector2(1088, 0)
