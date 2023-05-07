@@ -1,20 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://bf6kmrb3p6sr1"]
+[gd_scene load_steps=3 format=3 uid="uid://bf6kmrb3p6sr1"]
 
 [ext_resource type="PackedScene" uid="uid://u1k1sdt5l0gt" path="res://scenes/character/character.tscn" id="1_1n0o7"]
-[ext_resource type="PackedScene" uid="uid://bsxgfejsq04qo" path="res://scenes/land/floor.tscn" id="2_rv0sn"]
-[ext_resource type="PackedScene" uid="uid://d03ytibd2nv0" path="res://scenes/land/wall.tscn" id="3_yowag"]
+[ext_resource type="PackedScene" uid="uid://xxl3fccske2t" path="res://land.tscn" id="2_pdg12"]
 
 [node name="Level" type="Node2D"]
 
 [node name="Character" parent="." instance=ExtResource("1_1n0o7")]
 position = Vector2(544, 416)
 
-[node name="Floor" parent="." instance=ExtResource("2_rv0sn")]
-position = Vector2(0, 576)
+[node name="Land" parent="." instance=ExtResource("2_pdg12")]
 
-[node name="Ceiling" parent="." instance=ExtResource("2_rv0sn")]
+[node name="Polygon2D" parent="Land" index="0"]
+polygon = PackedVector2Array(128, 72, 128, 576, 232, 432, 384, 552, 712, 560, 784, 504, 960, 576, 960, 64, 1024, 64, 1024, 640, 64, 640, 64, 64)
 
-[node name="Wall" parent="." instance=ExtResource("3_yowag")]
+[node name="Line2D" parent="Land" index="1"]
+points = PackedVector2Array(128, 72, 128, 576, 232, 432, 384, 552, 712, 560, 784, 504, 960, 576, 960, 64, 1024, 64, 1024, 640, 64, 640, 64, 64, 128, 72)
+metadata/_edit_lock_ = true
 
-[node name="Floor4" parent="." instance=ExtResource("3_yowag")]
-position = Vector2(1088, 0)
+[editable path="Land"]
