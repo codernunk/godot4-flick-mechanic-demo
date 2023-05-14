@@ -15,6 +15,8 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 # This flag will indicate that we have tapped the character and are currently dragging on the screen
 var is_dragging: bool = false
 
+var current_trail: Trail
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.is_pressed() and (event.global_position - global_position).length() < CLICK_THRESHOLD:
@@ -37,6 +39,7 @@ func _input(event: InputEvent) -> void:
 				print("Flick!")
 				var flick_vector: Vector2 = (event.global_position - global_position)
 				velocity = flick_vector.normalized() * FLICK_POWER
+				make_trail()
 			else:
 				# In the case we release while inside the player's collision area, we will handle it
 				# like it was just a tap.
@@ -54,3 +57,16 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, FRICTION)
 
 	move_and_slide()
+	for i in get_slide_collision_count(): collide(get_slide_collision(i))
+
+func make_trail() -> void:
+	if current_trail:
+		current_trail.stop()
+	current_trail = Trail.create()
+	add_child(current_trail)
+
+func collide(collision: KinematicCollision2D) -> void:
+	if is_on_floor():
+		if current_trail:
+			current_trail.stop()
+			current_trail = null
