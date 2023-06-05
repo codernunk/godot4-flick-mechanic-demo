@@ -1,3 +1,4 @@
+class_name Player # Probably should have named it character, but it serves the same purpose for this tutorial
 extends CharacterBody2D
 
 
@@ -54,3 +55,15 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, FRICTION)
 
 	move_and_slide()
+
+func spring(power: float, direction: float) -> void:
+	# Sets the new velocity of the player based on the spring's direction and power
+	# If you want to keep the player's existing momentum, include the velocity.x or velocity.y
+	# in the assignment so the spring power is added relative to the existing motion.
+	# Otherwise, to reset the velocity, just omit it like I did here with the Y velocity.
+	# We need to use negative sine and cosine because Godot's rotation system has 90 degrees downwards,
+	# where most degree systems have 90 upwards.
+	velocity.x = velocity.x - cos(direction) * power
+	velocity.y = -sin(direction) * power
+	
+	

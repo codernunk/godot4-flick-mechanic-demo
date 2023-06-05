@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bf6kmrb3p6sr1"]
+[gd_scene load_steps=5 format=3 uid="uid://bf6kmrb3p6sr1"]
 
 [ext_resource type="PackedScene" uid="uid://u1k1sdt5l0gt" path="res://scenes/character/character.tscn" id="1_1n0o7"]
 [ext_resource type="PackedScene" uid="uid://bsxgfejsq04qo" path="res://scenes/land/floor.tscn" id="2_rv0sn"]
 [ext_resource type="PackedScene" uid="uid://d03ytibd2nv0" path="res://scenes/land/wall.tscn" id="3_yowag"]
+[ext_resource type="PackedScene" uid="uid://dqwd8lapsreer" path="res://spring.tscn" id="4_f07kr"]
 
 [node name="Level" type="Node2D"]
 
@@ -18,3 +19,18 @@ position = Vector2(0, 576)
 
 [node name="Floor4" parent="." instance=ExtResource("3_yowag")]
 position = Vector2(1088, 0)
+
+[node name="Spring" parent="." instance=ExtResource("4_f07kr")]
+position = Vector2(416, 512)
+
+[node name="Spring4" parent="." instance=ExtResource("4_f07kr")]
+position = Vector2(736, 136)
+rotation = -3.14159
+
+[node name="Spring2" parent="." instance=ExtResource("4_f07kr")]
+position = Vector2(128, 344)
+rotation = 1.57079
+
+[node name="Spring3" parent="." instance=ExtResource("4_f07kr")]
+position = Vector2(1024, 352)
+rotation = -1.57079

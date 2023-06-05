@@ -19,3 +19,4 @@ config/icon="res://icon.svg"
 
 2d_physics/layer_1="player"
 2d_physics/layer_2="land"
+2d_physics/layer_5="spring"
