@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bf6kmrb3p6sr1"]
+[gd_scene load_steps=5 format=3 uid="uid://bf6kmrb3p6sr1"]
 
 [ext_resource type="PackedScene" uid="uid://u1k1sdt5l0gt" path="res://scenes/character/character.tscn" id="1_1n0o7"]
 [ext_resource type="PackedScene" uid="uid://bsxgfejsq04qo" path="res://scenes/land/floor.tscn" id="2_rv0sn"]
 [ext_resource type="PackedScene" uid="uid://d03ytibd2nv0" path="res://scenes/land/wall.tscn" id="3_yowag"]
+[ext_resource type="Script" path="res://Timer.gd" id="4_te5n5"]
 
 [node name="Level" type="Node2D"]
 
@@ -18,3 +19,33 @@ position = Vector2(0, 576)
 
 [node name="Floor4" parent="." instance=ExtResource("3_yowag")]
 position = Vector2(1088, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Timer" type="Panel" parent="CanvasLayer"]
+offset_right = 192.0
+offset_bottom = 72.0
+script = ExtResource("4_te5n5")
+
+[node name="Minutes" type="Label" parent="CanvasLayer/Timer"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 26.0
+text = "00:"
+horizontal_alignment = 2
+
+[node name="Seconds" type="Label" parent="CanvasLayer/Timer"]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 64.0
+offset_bottom = 26.0
+text = "00."
+horizontal_alignment = 2
+
+[node name="Msecs" type="Label" parent="CanvasLayer/Timer"]
+layout_mode = 0
+offset_left = 64.0
+offset_right = 96.0
+offset_bottom = 26.0
+text = "000"
+horizontal_alignment = 2
