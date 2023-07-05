@@ -16,6 +16,6 @@ func _process(delta):
 		var new_node = new_scene.instantiate() # Instantiates a copy of the loaded scene
 		new_node.parameters = parameters # Assigns parameters to new scene
 		var current_scene = get_tree().current_scene # Stores the currently active scene, so we can replace it later
+		get_tree().get_root().add_child(new_node) # Adds the new scene to the scene tree. This MUST happen before assigning it as the current scene.
 		get_tree().current_scene = new_node # Assigns our new scene as the current scene
-		get_tree().get_root().add_child(new_node) # And adds it to the scene tree
 		current_scene.queue_free() # Now we can remove the original scene
