@@ -1,0 +1,98 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5fgf8hv1112n"]
+
+[ext_resource type="Script" path="res://level_select/level_select.gd" id="1_0d210"]
+[ext_resource type="PackedScene" uid="uid://tfii0fw55dd5" path="res://level_select/level_icon.tscn" id="1_klnpx"]
+[ext_resource type="PackedScene" uid="uid://c01q2livic0br" path="res://world_select/player_icon.tscn" id="2_2swth"]
+
+[node name="LevelSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0d210")
+
+[node name="1" parent="." node_paths=PackedStringArray("next_level_right") instance=ExtResource("1_klnpx")]
+layout_mode = 1
+anchor_left = 0.0555556
+anchor_top = 0.790123
+anchor_right = 0.111556
+anchor_bottom = 0.889123
+next_scene_path = "res://main.tscn"
+next_level_right = NodePath("../2")
+
+[node name="2" parent="." node_paths=PackedStringArray("next_level_up", "next_level_left", "next_level_right") instance=ExtResource("1_klnpx")]
+layout_mode = 1
+anchor_left = 0.222222
+anchor_top = 0.592593
+anchor_right = 0.278222
+anchor_bottom = 0.691593
+level_name = "2"
+next_scene_path = "res://main2.tscn"
+next_level_up = NodePath("../2A")
+next_level_left = NodePath("../1")
+next_level_right = NodePath("../3")
+
+[node name="2A" parent="." node_paths=PackedStringArray("next_level_down") instance=ExtResource("1_klnpx")]
+layout_mode = 1
+anchor_left = 0.222222
+anchor_top = 0.296296
+anchor_right = 0.278222
+anchor_bottom = 0.395296
+level_name = "2A"
+next_level_down = NodePath("../2")
+
+[node name="3" parent="." node_paths=PackedStringArray("next_level_left", "next_level_right") instance=ExtResource("1_klnpx")]
+layout_mode = 1
+anchor_left = 0.388889
+anchor_top = 0.592593
+anchor_right = 0.444889
+anchor_bottom = 0.691593
+level_name = "3"
+next_level_left = NodePath("../2")
+next_level_right = NodePath("../4")
+
+[node name="4" parent="." node_paths=PackedStringArray("next_level_up", "next_level_down", "next_level_left") instance=ExtResource("1_klnpx")]
+layout_mode = 1
+anchor_left = 0.555556
+anchor_top = 0.493827
+anchor_right = 0.611556
+anchor_bottom = 0.592827
+level_name = "4"
+next_level_up = NodePath("../5A")
+next_level_down = NodePath("../5B")
+next_level_left = NodePath("../3")
+
+[node name="6" parent="." node_paths=PackedStringArray("next_level_up", "next_level_down") instance=ExtResource("1_klnpx")]
+layout_mode = 1
+anchor_left = 0.888889
+anchor_top = 0.493827
+anchor_right = 0.944889
+anchor_bottom = 0.592827
+level_name = "6"
+next_level_up = NodePath("../5A")
+next_level_down = NodePath("../5B")
+
+[node name="5B" parent="." node_paths=PackedStringArray("next_level_left", "next_level_right") instance=ExtResource("1_klnpx")]
+layout_mode = 1
+anchor_left = 0.722222
+anchor_top = 0.691358
+anchor_right = 0.778222
+anchor_bottom = 0.790358
+level_name = "5B"
+next_level_left = NodePath("../4")
+next_level_right = NodePath("../6")
+
+[node name="5A" parent="." node_paths=PackedStringArray("next_level_left", "next_level_right") instance=ExtResource("1_klnpx")]
+layout_mode = 1
+anchor_left = 0.722222
+anchor_top = 0.296296
+anchor_right = 0.778222
+anchor_bottom = 0.395296
+level_name = "5A"
+next_level_left = NodePath("../4")
+next_level_right = NodePath("../6")
+
+[node name="PlayerIcon" parent="." instance=ExtResource("2_2swth")]
+layout_mode = 1

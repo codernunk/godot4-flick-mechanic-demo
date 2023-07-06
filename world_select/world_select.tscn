@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://svnemfild1t7"]
+
+[ext_resource type="Script" path="res://world_select/world_select.gd" id="1_bicro"]
+[ext_resource type="PackedScene" uid="uid://diqrmsmbosjib" path="res://world_select/world_icon.tscn" id="1_srali"]
+[ext_resource type="PackedScene" uid="uid://c5fgf8hv1112n" path="res://level_select/level_select.tscn" id="3_0s4gg"]
+[ext_resource type="PackedScene" uid="uid://c01q2livic0br" path="res://world_select/player_icon.tscn" id="3_gr34s"]
+[ext_resource type="PackedScene" uid="uid://r6dfa810gg6l" path="res://level_select/level_select_w2.tscn" id="4_0ewrd"]
+
+[node name="WorldSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bicro")
+
+[node name="WorldIcon" parent="." instance=ExtResource("1_srali")]
+layout_mode = 1
+anchor_left = 0.111111
+anchor_top = 0.691358
+anchor_right = 0.167111
+anchor_bottom = 0.790358
+level_select_packed = ExtResource("3_0s4gg")
+
+[node name="WorldIcon2" parent="." instance=ExtResource("1_srali")]
+layout_mode = 1
+anchor_left = 0.277778
+anchor_top = 0.493827
+anchor_right = 0.333778
+anchor_bottom = 0.592827
+world_index = 2
+level_select_packed = ExtResource("4_0ewrd")
+
+[node name="WorldIcon3" parent="." instance=ExtResource("1_srali")]
+layout_mode = 1
+anchor_left = 0.444444
+anchor_top = 0.691358
+anchor_right = 0.500444
+anchor_bottom = 0.790358
+world_index = 3
+level_select_packed = ExtResource("3_0s4gg")
+
+[node name="WorldIcon4" parent="." instance=ExtResource("1_srali")]
+layout_mode = 1
+anchor_left = 0.611111
+anchor_top = 0.493827
+anchor_right = 0.667111
+anchor_bottom = 0.592827
+world_index = 4
+level_select_packed = ExtResource("3_0s4gg")
+
+[node name="WorldIcon5" parent="." instance=ExtResource("1_srali")]
+layout_mode = 1
+anchor_left = 0.777778
+anchor_top = 0.691358
+anchor_right = 0.833778
+anchor_bottom = 0.790358
+world_index = 5
+level_select_packed = ExtResource("3_0s4gg")
+
+[node name="PlayerIcon" parent="." instance=ExtResource("3_gr34s")]
+layout_mode = 1
