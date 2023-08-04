@@ -16,6 +16,8 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_dragging: bool = false
 
 func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("ui_cancel"):
+		get_tree().reload_current_scene()
 	if event is InputEventMouseButton:
 		if event.is_pressed() and (event.global_position - global_position).length() < CLICK_THRESHOLD:
 			# This captures the "click" or "touch" step, meaning this will fire once the character is touched
